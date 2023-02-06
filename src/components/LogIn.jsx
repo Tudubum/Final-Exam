@@ -1,73 +1,87 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
 import UserContext from "../contexts/UserContext";
-
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 
 const LogIn = () => {
-    const [loginError, setLoginError] = useState(false);
-    const { users, setLoggedInUser } = useContext(UserContext);
-    const navigation = useNavigate();
-  
-    const handleSubmit = async (values, { setSubmitting }) => {
-      const loggedInUser = users.find(
-        user => user.email === values.email && user.password === values.password
-      );
-  
-      if (loggedInUser) {
-        setLoggedInUser(loggedInUser);
-        navigation("/home");
-      } else {
-        setLoginError(true);
-      }
-  
-      setSubmitting(false);
-    };
-  
-    const validationSchema = Yup.object().shape({
-      email: Yup.string()
-        .email("Invalid email address")
-        .required("Email is required"),
-      password: Yup.string()
-        .required("Password is required")
-    });
-  
-    return (
-      <>
-        <div>
-          <Formik
-            initialValues={{
-              email: "",
-              password: ""
-            }}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmit}
-          >
-            {({ isSubmitting }) => (
-              <Form>
-                <h1>Welcome back</h1>
-                <h3>Please enter your details</h3>
-                <div>
-                  <Field type="email" name="email" />
-                  <ErrorMessage name="email" component="div" />
-                </div>
-                <div>
-                  <Field type="password" name="password" />
-                  <ErrorMessage name="password" component="div" />
-                </div>
-                <button type="submit" disabled={isSubmitting}>
-                  Log In
-                </button>
-  
-                {loginError && <span className="error">Incorrect login information</span>}
-              </Form>
-            )}
-          </Formik>
-        </div>
-      </>
-    );
-  };
+  const [failedLogIn, setFailedLogIn] = useState(false);
+  const navigate = useNavigate();
+  const { users, setLoggedInUser } = useContext(UserContext);
 
-  export default LogIn;
+  const handleSubmit = async (values, setSubmitting) => {
+    const loggedInUser = users.find(user => user.email === values.email && user.password === values.password);
+    if (loggedInUser) {
+      setLoggedInUser(loggedInUser);
+      navigate('/')
+    } else {
+      setFailedLogIn(true);
+    }
+    setSubmitting(false);
+  }
+
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .required('Username is required'),
+    password: Yup.string()
+      .required('Password is required')
+  });
+
+  return (
+    <>
+      <div className="logIn">
+        <Formik
+          initialValues={{
+            email: '',
+            password: ''
+          }}
+          validationSchema={validationSchema}
+          onSubmit={(values, { setSubmitting }) => handleSubmit(values, setSubmitting)}       >
+
+          {({ errors, touched, values, setValues, isSubmitting }) => (
+            <Form>
+              <div>
+                <h1>Log In</h1>
+                <label>Email:
+                  <Field
+                    name='email'
+                    value={values.email}
+                    onChange={(e) => setValues({ ...values, email: e.target.value })}
+                  />
+                  {
+                    errors.email && touched.email ?
+                      <span>{errors.email}</span>
+                      : null
+                  }
+                </label>
+              </div>
+              <div>
+                <label>Password:
+                  <Field
+                    name="password"
+                    type="password"
+                    value={values.password}
+                    onChange={(e) => setValues({ ...values, password: e.target.value })}
+                  />
+                  {
+                    errors.password && touched.password ?
+                      <span>{errors.password}</span>
+                      : null
+                  }
+                </label>
+              </div>
+              <button type="submit" disabled={isSubmitting}>
+                Log In
+              </button>
+              {
+                failedLogIn && <span>Wrong log in info</span>
+              }
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </>
+  );
+}
+
+export default LogIn;
