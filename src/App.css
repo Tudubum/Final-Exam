@@ -1,0 +1,23 @@
+body{
+  margin: 0;
+}
+
+.navBar{
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #253439;
+  padding: 0 40px;
+}
+
+.navBar img{
+  height: 60px;
+  width: auto;
+}
+
+.linksNav{
+  display: flex;
+  gap: 20px;
+  color: white;
+}
