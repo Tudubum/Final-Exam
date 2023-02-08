@@ -9,7 +9,7 @@ import UserContext from "../contexts/UserContext";
 
 
 const SignUp = () => {
-    const [formInputs, setFormInputs] = useState({
+    const formInputs = useState({
         userName: '',
         email: '',
         password: '',

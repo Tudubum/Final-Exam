@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 0,
-      "username": "Giedre",
+      "userName": "Giedre",
       "email": "giedre@gmail.com",
       "password": "Giedre1",
       "image": "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/girl_avatar_child_kid-512.png"
@@ -22,14 +22,51 @@
       "confirmPassword": "Vabaliukas1",
       "image": "https://static.vecteezy.com/system/resources/thumbnails/002/002/332/small_2x/ablack-man-avatar-character-isolated-icon-free-vector.jpg",
       "id": 1675686695936
+    },
+    {
+      "userName": "Radvile",
+      "email": "radvile@gmail.com",
+      "password": "Radvile1",
+      "confirmPassword": "Radvile1",
+      "image": "https://static.vecteezy.com/system/resources/thumbnails/002/002/332/small_2x/ablack-man-avatar-character-isolated-icon-free-vector.jpg",
+      "id": 1675768397328
     }
   ],
   "posts": [
     {
-      "username": "Giedre",
+      "userName": "Giedre",
       "title": "Kas Jums padeda išsirinkti interjero spalvas?",
       "description": "Man namai yra viskas! Tai ne tik dezute, kurioje tu miegi ir valgai, tai turi buti vieta i kuria VISADA noretusi sugrizti, visada butu jauku, silta, gera ir kas liecia interjera megstu posaki 'namai su charakteriu'. Labai daznai pastebiu, pas laaaabai daug zmoniu, namams truksta kazkokiu idomiu detaliu, dazniausiai bijo eksperimentuoti su spalvomis ir daznai buna salti, kur nesinori padet plikos kojos ant grindu. Tad norėjau paklausti kas Jums padeda išsirinkti spalvas? Gal turite kokių tip'sų?",
-      "id": 1
+      "id": 1,
+      "userId": 0,
+      "likedBy": [],
+      "dislikedBy": [
+        0
+      ]
+    },
+    {
+      "title": "SUNIUKAI",
+      "description": "SUNIUKU SUNIUKAI",
+      "id": 1675768642854,
+      "userId": 1675686436703,
+      "likedBy": [
+        0
+      ],
+      "dislikedBy": []
+    },
+    {
+      "title": "Virtuvinis stalas",
+      "description": "Help! Pasidalinkite patarimais iš patirties - ieškome virtuvinio stalo, turime du mažus vaikus, tai stalas būtų intensyviai valomas, padaužomas ir visaip kitaip kankinamas. Kokį paviršių rekomenduotumet, kad nereiktų valyt po kiekvienos rankytės uždėjimo ir, kad po savaitės su staltiese slėpt nereiktų.",
+      "id": 1675793957294,
+      "userId": 1675768397328
+    },
+    {
+      "title": "Namų šildymas",
+      "description": "Sveiki:) Kyla svarstymas dėl oras/vanduo ir geotermika sildymo 270 M2 name. Gal galite pasidalinti + ir -, kas turite namuose isirengę? Ar su geotermika karsta vasara atsaldo namus pakankamai ar reikia ir kondicionieriaus papildomai? Ar šalta žiema oras/vanduo išildo gerai? Labai laukčiau turinčių savuose namuose patirties pasidalinimo ♥️",
+      "id": 1675838541360,
+      "userId": 1675768397328,
+      "likedBy": [],
+      "dislikeBy": []
     }
   ]
 }

@@ -1,5 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*
+font-family: 'Playfair Display', serif;
+font-family: 'Work Sans', sans-serif;
+
+*/
+
+
 body{
   margin: 0;
+  background-color: #F1F6F5;
+  font-family: 'Work Sans', sans-serif;
+
+}
+
+body p{
+  font-weight: 200;
+  line-height: 25px;
 }
 
 .navBar{
@@ -9,15 +26,150 @@ body{
   align-items: center;
   background-color: #253439;
   padding: 0 40px;
+  font-family: 'Playfair Display', serif;
 }
 
-.navBar img{
-  height: 60px;
+.logoImg{
+  height: 45px;
   width: auto;
 }
 
 .linksNav{
   display: flex;
+  align-items: center;
   gap: 20px;
   color: white;
 }
+
+/*      avatar   */
+
+.avatarImg{
+  width: auto;
+  height: 40px;
+}
+
+/*    CARD  */
+
+h4{
+  font-size: 18px;
+  margin-top: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
+}
+
+.material-icons.filled {
+  color: black ; 
+  font-size: 18px;
+  font-size: 18px;
+
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+button{
+  background-color: #D6E4E5;
+  border-radius: 5px;
+  border: none;
+}
+
+
+.material-icons.outlined {
+  color: rgb(0, 0, 0); 
+  font-size: 18px;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+  }
+
+.likeButton{
+  background-color: none;
+  border: none;
+}
+
+.btn{
+  background-color: #253439;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 25px;
+  width: 100px;
+  color: white;
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+
+}
+
+.btn a{
+  color: white;
+  text-decoration: none;
+}
+
+.cardContainer{
+  padding: 30px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 40px;
+  width: auto;
+  height: auto;
+  background-color: #D6E4E5;
+}
+
+.seperator{
+  width:35px;
+  height:2px;
+  background-color:#253439;
+  border:none;
+}
+
+.postOwnerInfo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Work Sans', sans-serif;
+
+}
+
+.deleteditBtn{
+  margin-top: 20px;
+  display: flex;
+  gap: 10px
+}
+
+/*   POST OWNER POSTS */
+
+.sideMenu{
+  background-color: #777;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.userContent{
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media (max-width: 700px) {
+  .sideMenu {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .userContent {
+    margin-left: 0;
+
+  }
+}
+
