@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();
 
@@ -37,6 +38,14 @@ const UserProvider = ({ children }) => {
     }
   };
 
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setLoggedInUser(null);
+    navigate("/");
+};
+
   return (
     <UserContext.Provider
       value={{
@@ -45,6 +54,7 @@ const UserProvider = ({ children }) => {
         loggedInUser,
         setLoggedInUser,
         addNewUser,
+        handleLogout
       }}
     >
       {children}

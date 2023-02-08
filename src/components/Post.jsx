@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import PostContext from "../contexts/PostContext";
@@ -7,10 +7,11 @@ const Post = ({ data }) => {
 
     const { users, loggedInUser } = useContext(UserContext);
     const { deletePost, handleLike,  handleDislike} = useContext(PostContext);
-    //const [likes, setLikes] = useState(data.likes || 0);
+  
     
     const postOwner = users.find(user => user.id === data.userId);
-console.log(data.likedBy)
+    
+console.log(postOwner)
 
     return (    
     <div className="cardContainer">
@@ -20,6 +21,7 @@ console.log(data.likedBy)
             src={postOwner.image} 
             alt="userAvatar" />
         <span>{postOwner.userName}</span>
+      
         {
   loggedInUser ? (
     <>
@@ -56,7 +58,9 @@ console.log(data.likedBy)
                     </button>
                 </>
             )}
+                
         </div>
+        <p className="edit-label">{data.edited ? ' ✓ Post was edited' : ''}</p>
     </div>
     );
     

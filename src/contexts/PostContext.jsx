@@ -41,6 +41,7 @@ const deletePost = async (id) => {
   };
 
   const updatePost = async (id, updatedPost ) => {
+    updatedPost.edited = true;
     await fetch(`http://localhost:3000/posts/${id}`, {
       method: 'PUT',
       body: JSON.stringify(updatedPost),
@@ -51,7 +52,11 @@ const deletePost = async (id) => {
       }
     }).catch(error => console.error(error));
   };
+  
 
+
+
+  
   const handleLike = async (id) => {
     const updatedPost = post.find(post => post.id === id);
     updatedPost.likedBy = updatedPost.likedBy ?? [];

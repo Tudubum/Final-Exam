@@ -9,7 +9,8 @@ import UserProfile from "./UserProfile";
 
 
 const Navbar = () => {
-    const { loggedInUser } = useContext(UserContext);
+    const { loggedInUser, handleLogout } = useContext(UserContext);
+    
 
     
 
@@ -41,6 +42,9 @@ const Navbar = () => {
                 Home
                 </NavLink>
                 <UserProfile/>
+                {loggedInUser && (
+                    <button className="submit_logout" onClick={handleLogout}>Log Out</button>
+                )}
             </>
           
             : 

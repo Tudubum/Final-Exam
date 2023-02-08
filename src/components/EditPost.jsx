@@ -16,6 +16,7 @@ const EditPost = () => {
   const [formInputs, setFormInputs] = useState({
     title: currentPost.title || "",
     description: currentPost.description || "",
+    
   });
 
   const handleSubmit = e => {

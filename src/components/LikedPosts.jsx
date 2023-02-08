@@ -8,7 +8,7 @@ const LikedPosts = () => {
     const { loggedInUser } = useContext(UserContext);
     const { post } = useContext(PostContext);
     
-    const likedPosts = post.filter(post => post.likedBy.includes(loggedInUser.id));
+    const likedPosts = post && post.likedBy ? post.filter(p => p.likedBy.includes(loggedInUser.id)) : [];
 
     return (
       <div className="likedPlacesList">
