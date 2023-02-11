@@ -8,20 +8,17 @@ const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/users");
-        const userData = await response.json();
-        setUsers(userData);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchData();
-  }, []);
 
-  const addNewUser = async (newUser) => {
+  useEffect(() => {
+    const data = async () => {
+        const res = await fetch('http://localhost:3000/users');
+        const data = await res.json();
+        setUsers(data);
+    }
+    data();
+}, []);
+
+  /*const addNewUser = (newUser) => {
     try {
       const res = await fetch("http://localhost:3000/users", {
         method: "POST",
@@ -30,13 +27,32 @@ const UserProvider = ({ children }) => {
         },
         body: JSON.stringify(newUser),
       });
-      const updatedUsers = await res.json();
-      setUsers([...users, updatedUsers]);
-      localStorage.setItem("users", JSON.stringify([...users, updatedUsers]));
-    } catch (err) {
-      console.error(err);
+      const data = await res.json();
+        console.log(data);
+        } catch (error) {
+        console.error(error);
+      }
+      }  
+*/
+      const addNewUser = (newUser) =>{
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify(newUser)
+        })
+        .then(res => res.json())
+        .then(data => {
+            setUsers([...users, newUser]);
+        });
     }
-  };
+
+//const updatedUsers = await res.json();
+//      setUsers([...users, updatedUsers]);
+//      localStorage.setItem("users", JSON.stringify([...users, updatedUsers]));
+//    } catch (err) {
+//      console.error(err);
+//    }
+  
 
 
   const navigate = useNavigate();

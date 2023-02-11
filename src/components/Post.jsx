@@ -10,42 +10,34 @@ const Post = ({ data }) => {
   
     
     const postOwner = users.find(user => user.id === data.userId);
-    
-console.log(postOwner)
+
+    const PostVote = data.likedBy && data.likedBy.length - (data.disLikedBy && data.disLikedBy.length || 0);
 
     return (    
     <div className="cardContainer">
         <div className="postOwnerInfo">
-            <img 
-            className="avatarImg"
-            src={postOwner.image} 
-            alt="userAvatar" />
-        <span>{postOwner.userName}</span>
-      
-        {
-  loggedInUser ? (
-    <>
-        <button onClick={() => handleLike(data.id)} className="likeButton">
-            <i className={`material-icons ${data.likedBy && data.likedBy.includes(loggedInUser.id) ? 'filled' : 'outlined'}`}>thumb_up</i>
-        </button>
-        <button onClick={() => handleDislike(data.id)} className="dislikeButton">
-            <i className={`material-icons ${data.dislikedBy && data.dislikedBy.includes(loggedInUser.id) ? 'filled' : 'outlined'}`}>thumb_down</i>
-        </button>
-    </>
-  ) : (
-    <>
-        <button className="likeButton disabled">
-            <i className={`material-icons outlined`}>thumb_up</i>
-        </button>
-        <button className="dislikeButton disabled">
-            <i className={`material-icons outlined`}>thumb_down</i>
-        </button>
-    </>
-  )
-}
+            <div>
+               <img 
+                className="avatarImg"
+                src={postOwner.image} 
+                alt="userAvatar" />
+                <span>{postOwner.userName}</span>  
+            </div>
         </div>
+        {loggedInUser &&
+        <>
+            <button onClick={() => handleLike(data.id)} className="likeButton">
+                { loggedInUser && data.likedBy && data.likedBy.includes(loggedInUser.id) ? <i className="fa fa-thumbs-up"></i> : <i className="fa fa-thumbs-o-up"></i>}
+            </button>
+            <button onClick={() => handleDislike(data.id)} className="DisLikeButton">
+                 { loggedInUser && data.disLikedBy &&  data.disLikedBy.includes(loggedInUser.id) ? <i className="fa fa-thumbs-down"></i> : <i className="fa fa-thumbs-o-down"></i>}
+            </button>
+        </>
+        }
+        <p>Likes: {PostVote}</p>
+   
         <div className="postInfo">
-            <h4>{data.title}</h4>
+            <Link to={`/post/${data.id}`}>{data.title}</Link>
             <div className="seperator"></div>
             <p>{data.description}</p>
         </div>
@@ -58,9 +50,14 @@ console.log(postOwner)
                     </button>
                 </>
             )}
-                
+           {loggedInUser && loggedInUser.id !== data.userId && (
+                <button className="answer_btn">
+                    <Link to={`/messageForm/${data.id}`}>Answer</Link>
+                 </button>
+            )}
         </div>
         <p className="edit-label">{data.edited ? ' ✓ Post was edited' : ''}</p>
+    
     </div>
     );
     

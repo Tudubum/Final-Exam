@@ -8,6 +8,7 @@ const AddPostForm = () => {
     const [formInputs, setFormInputs] = useState({
       title: '',
       description: '',
+   
     });
   
       const { addNewPost } = useContext(PostContext);
@@ -20,10 +21,12 @@ const AddPostForm = () => {
         const newPost = {
           title: formInputs.title,
           description: formInputs.description,
+          timestamp: new Date().toLocaleString(),
           id: Date.now(),
           userId: loggedInUser.id,
+          isEdited: false,
           likedBy: [],
-          dislikeBy: []
+          disLikedBy: []
         };
     
         addNewPost(newPost);

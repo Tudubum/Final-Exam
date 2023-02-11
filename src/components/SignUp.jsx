@@ -32,9 +32,11 @@ const SignUp = () => {
           setSubmitting(false);
         } else {
           let newUser = {
-            ...values,
-            id: Date.now(),
-         
+            userName:values.userName,
+            email:values.email,
+            password:values.password,
+            image:values.image,
+            id: Date.now()
           };
           fetch('http://localhost:3000/users', {
             method: 'POST',

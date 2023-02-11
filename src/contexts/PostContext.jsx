@@ -41,7 +41,7 @@ const deletePost = async (id) => {
   };
 
   const updatePost = async (id, updatedPost ) => {
-    updatedPost.edited = true;
+    updatedPost.isEdited = true;
     await fetch(`http://localhost:3000/posts/${id}`, {
       method: 'PUT',
       body: JSON.stringify(updatedPost),
@@ -53,33 +53,28 @@ const deletePost = async (id) => {
     }).catch(error => console.error(error));
   };
   
-
-
-
-  
   const handleLike = async (id) => {
-    const updatedPost = post.find(post => post.id === id);
-    updatedPost.likedBy = updatedPost.likedBy ?? [];
+    const updatedPost= post.find(post => post.id === id);
     if(!updatedPost.likedBy.includes(loggedInUser.id)) {
         updatedPost.likedBy.push(loggedInUser.id);
+        updatedPost.disLikedBy = updatedPost.disLikedBy.filter(userId => userId !== loggedInUser.id);
     } else {
         updatedPost.likedBy = updatedPost.likedBy.filter(userId => userId !== loggedInUser.id);
     }
     await updatePost(id, updatedPost);
-}
+  }
 
 const handleDislike = async (id) => {
-    const updatedPost = post.find(post => post.id === id);
-    updatedPost.dislikedBy = updatedPost.dislikedBy ?? [];
-    if (!updatedPost.dislikedBy.includes(loggedInUser.id)) {
-      updatedPost.dislikedBy.push(loggedInUser.id);
-    } else {
-      updatedPost.dislikedBy = updatedPost.dislikedBy.filter(
-        userId => userId !== loggedInUser.id
-      );
-    }
-    await updatePost(id, updatedPost);
-  };
+  const updatedPost= post.find(post => post.id === id);
+  if(!updatedPost.disLikedBy.includes(loggedInUser.id)) {
+      updatedPost.disLikedBy.push(loggedInUser.id);
+      updatedPost.likedBy = updatedPost.likedBy.filter(userId => userId !== loggedInUser.id);
+  } else {
+      updatedPost.disLikedBy = updatedPost.disLikedBy.filter(userId => userId !== loggedInUser.id);
+  }
+  await updatePost(id, updatedPost);
+}
+
 
 return (
     <PostContext.Provider
@@ -91,6 +86,7 @@ return (
             updatePost,
             handleLike,
             handleDislike
+            
             
         }}
         >

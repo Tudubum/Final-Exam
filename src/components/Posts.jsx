@@ -7,16 +7,13 @@ const Posts = () => {
   
     return (
       <div className="Cards">
-        {
-            post ?
-            <>
-                {post.map(p =>
-                 <Post 
-                 key={p.id}
-                 data={p}
-                />     
-            )}
-        </>
+        { post ?
+            post.map((post, index) =>
+              <Post 
+              key={post.id || index}
+              data={post}
+             />     
+         )
         :
         <div className="loading">
             <h1>loading...</h1>

@@ -8,6 +8,8 @@ import AddPostForm from './components/AddPostForm';
 import EditPost from './components/EditPost';
 import PostOwnerPosts from './components/PostOwnerPosts';
 import LikedPosts from './components/LikedPosts';
+import MessageForm from './components/MessageForm';
+import PostComments from './components/PostComments';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/editPost/:id" element={<EditPost/>}/>
         <Route path="/postOwnerPosts" element={<PostOwnerPosts/>}/>
         <Route path="/liked" element={<LikedPosts/>}/>
+        <Route path="/messageForm/:id" element={<MessageForm/>}/>
+        <Route path="/post/:id" element={<PostComments/>}/>
     </Routes>
     
    </>

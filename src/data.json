@@ -10,8 +10,8 @@
     {
       "userName": "Laurynas",
       "email": "laurynas@gmail.com",
-      "password": "Kempniukas11",
-      "confirmPassword": "Kempniukas11",
+      "password": "Kempiniukas11",
+      "confirmPassword": "Kempiniukas11",
       "image": "https://img.freepik.com/free-icon/man_318-157599.jpg",
       "id": 1675686436703
     },
@@ -34,42 +34,92 @@
   ],
   "posts": [
     {
-      "title": "Kas Jums padeda išsirinkti interjero spalvas?",
+      "title": ":) Kas Jums padeda išsirinkti interjero spalvas?",
       "description": "Man namai yra viskas! Tai ne tik dėžutė, kurioje tu miegi ir valgai, tai turi buti vieta i kuria VISADA noretusi sugrizti, visada butu jauku, silta, gera ir kas liecia interjera megstu posaki 'namai su charakteriu'. Labai daznai pastebiu, pas laaaabai daug zmoniu, namams truksta kazkokiu idomiu detaliu, dazniausiai bijo eksperimentuoti su spalvomis ir daznai buna salti, kur nesinori padet plikos kojos ant grindu. Tad norėjau paklausti kas Jums padeda išsirinkti spalvas? Gal turite kokių tip'sų?",
-      "userId": 0,
-      "edited": true,
-      "id": 1
+      "timestamp": "10/02/2023, 15:34:01",
+      "isEdited": true,
+      "id": 1,
+      "userId": 1675686436703,
+      "likedBy": [
+        1675686436703,
+        0
+      ],
+      "disLikedBy": []
     },
     {
       "title": "Durys",
       "description": "Gal turite pasiūlymų kokias duris geriausiai dėtis, kai namuose yra šuo, kuris mėgsta pats duris atsidaryti ir taip draskyti duris? :)))",
-      "edited": true,
+      "timestamp": "2/8/2023, 4:43:25 PM",
       "id": 1675768642854,
       "userId": 1675686436703,
+      "isEdited": true,
       "likedBy": [
+        1675686436703,
         0
       ],
-      "dislikeBy": []
+      "disLikedBy": []
     },
     {
       "title": "Virtuvinis stalas",
       "description": "Help! Pasidalinkite patarimais iš patirties - ieškome virtuvinio stalo, turime du mažus vaikus, tai stalas būtų intensyviai valomas, padaužomas ir visaip kitaip kankinamas. Kokį paviršių rekomenduotumet, kad nereiktų valyt po kiekvienos rankytės uždėjimo ir, kad po savaitės su staltiese slėpt nereiktų.",
+      "timestamp": "2/8/2023, 4:43:20 PM",
       "id": 1675793957294,
       "userId": 1675768397328,
-      "likedBy": [
-        0
-      ],
-      "dislikeBy": []
+      "isEdited": false,
+      "likedBy": [],
+      "disLikeBy": []
     },
     {
       "title": "Namų šildymas",
       "description": "Sveiki:) Kyla svarstymas dėl oras/vanduo ir geotermika sildymo 270 M2 name. Gal galite pasidalinti + ir -, kas turite namuose isirengę? Ar su geotermika karsta vasara atsaldo namus pakankamai ar reikia ir kondicionieriaus papildomai? Ar šalta žiema oras/vanduo išildo gerai? Labai laukčiau turinčių savuose namuose patirties pasidalinimo ♥️",
+      "timestamp": "2/8/2023, 4:45:20 PM",
       "id": 1675838541360,
       "userId": 1675768397328,
-      "likedBy": [
-        0
-      ],
+      "isEdited": false,
+      "likedBy": [],
       "dislikeBy": []
+    },
+    {
+      "title": "Kaitlentė",
+      "description": "Sveiki, \nKas turite Elica Nikolatesta kaitlentes su angliniais filtrais, ar Jums išpučia orą visiškai be kvapo ?",
+      "timestamp": "10/02/2023, 19:10:42",
+      "id": 1676049042018,
+      "userId": 0,
+      "isEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
+    }
+  ],
+  "answers": [
+    {
+      "answer": "nezinau",
+      "id": 1675959392408,
+      "userId": 0,
+      "questionId": 1675768642854,
+      "timestamp": "09/02/2023, 18:16:32",
+      "isEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "answer": "Testas",
+      "id": 1676021274388,
+      "userId": 1675686436703,
+      "questionId": 1,
+      "timestamp": "10/02/2023, 11:27:54",
+      "isEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "answer": "hmmmmm",
+      "id": 1676051615143,
+      "userId": 0,
+      "questionId": 1,
+      "timestamp": "10/02/2023, 19:53:35",
+      "isEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
     }
   ]
 }

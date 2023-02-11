@@ -2,52 +2,59 @@ import PostContext from "../contexts/PostContext";
 import { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+const EditQuestion = () => {
 
-const EditPost = () => {
-
-    const { id } = useParams();
+  const { id } = useParams();
 
   const { post, updatePost } = useContext(PostContext);
-
-  const currentPost = post.find(post => post.id.toString() === id) || {};
-
+  
   const navigation = useNavigate();
 
+  const currentPost = post.find(post => post.id.toString() === id)
+
+ 
+
   const [formInputs, setFormInputs] = useState({
-    title: currentPost.title || "",
-    description: currentPost.description || "",
+    title: currentPost.title,
+    description: currentPost.description,
+    timestamp: currentPost.timestamp,
+    isEdited: currentPost.isEdited
     
   });
-
+  
   const handleSubmit = e => {
     e.preventDefault();
     
-    updatePost(id, formInputs);
+    updatePost(id, {...formInputs, timestamp: new Date().toLocaleString(), isEdited: true});
     
     navigation('/');
   }
 
+
   return (
-    <div className="editPostForm">
-      <h3>EDIT POST</h3>
-         <form onSubmit={handleSubmit}>
-             <label>
-                 Pavadinimas:
-                 <input type="text" value={formInputs.title} 
-                onChange={(e) => setFormInputs({...formInputs, title:e.target.value})}
-                  />
-             </label>
-             <label>
-                 Aprašymas:
-                 <input type="text" value={formInputs.description} 
-                 onChange={(e)=> setFormInputs({...formInputs, description:e.target.value})}
-                 />
-             </label>
-             <button className="submit" type="submit">Edit post</button>
-         </form>
-    </div>
+    <>
+    
+    <form onSubmit={handleSubmit} className='Edit-form'>
+      <h2>Edit Question</h2>
+        <label>
+          Title:
+          <input type="text" name="title"
+            value={formInputs.title}
+            onChange={(e) => setFormInputs({...formInputs, title:e.target.value})}
+          />
+        </label>
+        <label>
+          Description:
+          <textarea type="text" name="description"
+            value={formInputs.description}
+            onChange={(e) => setFormInputs({...formInputs, description:e.target.value})}
+          />
+        </label>
+        <input type="submit" value="Edit" />
+
+        </form>
+    </>
   );
 }
-
  
-export default EditPost;
+export default EditQuestion;
