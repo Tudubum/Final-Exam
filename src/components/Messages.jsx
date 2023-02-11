@@ -1,18 +1,17 @@
-import AnswersContext from "../contexts/CommentsContext";
+import CommentsContext from "../contexts/CommentsContext";
 import { useContext } from "react";
-import Answer from "./Message";
+import Message from "./Message";
 
-const Answers = () => {
+const Messages = () => {
 
-  const { answers } = useContext(AnswersContext);
+  const { answers } = useContext(CommentsContext);
  
-console.log(answers)
   return (
     <>
-    <div className="AnswersCardsWrapper">
+    <div className="messages_Container">
         {answers ?
           answers.map((answer, index) => 
-            <Answer 
+            <Message 
               key={answer.id || index}
               data={answer}
             />  
@@ -25,4 +24,4 @@ console.log(answers)
   );
 }
  
-export default Answers;
+export default Messages;

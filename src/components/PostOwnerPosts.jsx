@@ -21,11 +21,8 @@ const PostOwnerPosts = () => {
             style={({ isActive}) => {
                 return {color: isActive ? 'white' : '#b39e87' };}}
             to="/liked"
-            >
-            Liked posts
-            </NavLink>
+            >Liked posts</NavLink>
       </div>
-    
   {
         post
           .filter(post => post.userId === loggedInUser.id)
@@ -37,10 +34,8 @@ const PostOwnerPosts = () => {
           )
       }
     </div>
-    
     </div>
   );
 }
 
- 
 export default PostOwnerPosts;

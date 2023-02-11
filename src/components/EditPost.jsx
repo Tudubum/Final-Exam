@@ -2,7 +2,7 @@ import PostContext from "../contexts/PostContext";
 import { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const EditQuestion = () => {
+const EditPost = () => {
 
   const { id } = useParams();
 
@@ -12,28 +12,21 @@ const EditQuestion = () => {
 
   const currentPost = post.find(post => post.id.toString() === id)
 
- 
-
   const [formInputs, setFormInputs] = useState({
     title: currentPost.title,
     description: currentPost.description,
     timestamp: currentPost.timestamp,
     isEdited: currentPost.isEdited
-    
   });
   
   const handleSubmit = e => {
     e.preventDefault();
-    
     updatePost(id, {...formInputs, timestamp: new Date().toLocaleString(), isEdited: true});
-    
     navigation('/');
   }
 
-
   return (
     <>
-    
     <form onSubmit={handleSubmit} className='Edit-form'>
       <h2>Edit Question</h2>
         <label>
@@ -51,10 +44,9 @@ const EditQuestion = () => {
           />
         </label>
         <input type="submit" value="Edit" />
-
         </form>
     </>
   );
 }
  
-export default EditQuestion;
+export default EditPost;

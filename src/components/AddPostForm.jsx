@@ -1,7 +1,8 @@
 import PostContext from "../contexts/PostContext";
 import UserContext from "../contexts/UserContext";
+
 import { useContext, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddPostForm = () => {
 
@@ -10,7 +11,7 @@ const AddPostForm = () => {
       description: '',
    
     });
-      const { id } = useParams;
+     
       const { addNewPost } = useContext(PostContext);
       const { loggedInUser } = useContext(UserContext);
     

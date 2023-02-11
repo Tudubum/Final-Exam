@@ -1,8 +1,7 @@
-import { useState, useContext, useEffect } from 'react';
+/*import { useState, useContext, useEffect } from 'react';
 import PostContext from "../contexts/PostContext";
 import AnswersContext from "../../context/CommentsContext";
 import Posts from './Posts';
-
 
 const FilterPosts = () => {
 
@@ -11,7 +10,6 @@ const FilterPosts = () => {
     const { answers } = useContext(AnswersContext);
 
     useEffect(() => {
-        console.log(post, answers);
         setPostToShow(post);
       }, [post, answers]);
 
@@ -23,3 +21,4 @@ const FilterPosts = () => {
 }
  
 export default FilterPosts;
+*/

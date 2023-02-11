@@ -1,12 +1,9 @@
-import AnswersContext from "../contexts/CommentsContext";
+import CommentsContext from "../contexts/CommentsContext";
 import UserContext from "../contexts/UserContext";
 import { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-
-
-
-const AddAnswer = ( ) => {
+const MessageForm = ( ) => {
 
   const { id } = useParams();
 
@@ -14,11 +11,10 @@ const AddAnswer = ( ) => {
        answer: "", 
     });
 
-    const { addNewAnswers } = useContext(AnswersContext);
+    const { addNewAnswers } = useContext(CommentsContext);
     const { loggedInUser } = useContext(UserContext);
     const navigation = useNavigate()
    
-
     const handleSubmit = e => {
         e.preventDefault();
         const newAnswers ={
@@ -39,16 +35,16 @@ const AddAnswer = ( ) => {
     return(
         <form onSubmit={handleSubmit} className="AddAnswer-form">
         <label>
-          Here you could leave your Answer:
+          Here you can leave your Answer:
           <textarea type="text" name="answer"
           placeholder="type here..."
             value={formInputs.answer}
             onChange={(e) => setFormInputs({...formInputs, answer:e.target.value})}
           />
         </label>
-        <input type="submit" value="Send" />
+        <input type="submit" className="submit" value="Send" />
         </form>
-    )
-}
+    );
+};
 
-export default AddAnswer
+export default MessageForm;

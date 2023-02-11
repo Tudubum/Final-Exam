@@ -6,15 +6,11 @@ import UserContext from "../contexts/UserContext";
 import { NavLink } from 'react-router-dom';
 import UserProfile from "./UserProfile";
 
-
-
 const Navbar = () => {
+
     const { loggedInUser, handleLogout } = useContext(UserContext);
     
-
-    
-
-    return ( 
+return ( 
     <>
         <div className="navBar">
             <div>
@@ -26,49 +22,43 @@ const Navbar = () => {
             <div className="linksNav">
                 {loggedInUser ? 
             <>
-                  <NavLink
-                className="addPost"
-                style={({ isActive}) => {
-                    return {color: isActive ? 'white' : '#b39e87' };}}
-                to="/add"
-                >
-                Add Post
-                </NavLink>
-                  <NavLink
-                style={({ isActive}) => {
-                    return {color: isActive ? 'white' : '#b39e87' };}}
-                to="/"
-                >
-                Home
-                </NavLink>
+                <NavLink
+                    className="addPost"
+                    style={({ isActive}) => {
+                        return {color: isActive ? 'white' : '#b39e87' };}}
+                    to="/add"
+                >Add Post</NavLink>
+                <NavLink
+                    style={({ isActive}) => {
+                        return {color: isActive ? 'white' : '#b39e87' };}}
+                    to="/">Home</NavLink>
                 <UserProfile/>
                 {loggedInUser && (
-                    <button className="submit_logout" onClick={handleLogout}>Log Out</button>
+                    <button 
+                    className="submit_logout" 
+                    onClick={handleLogout}>Log Out</button>
                 )}
             </>
-          
             : 
             <>
                 <>
                 <NavLink
-                style={({ isActive}) => {
-                    return {color: isActive ? 'white' : '#b39e87' };}}
-                to="/"
-                >
-                Home
-                </NavLink>
+                    style={({ isActive}) => {
+                        return {color: isActive ? 'white' : '#b39e87' };}}
+                    to="/"
+                >Home</NavLink>
                 </>
                 <NavLink 
-                className="login"
-                style={({ isActive}) => {
-                    return {color: isActive ? 'white' : '#b39e87' };}}
-                to='/logIn'>Log in
-                </NavLink>
+                    className="login"
+                    style={({ isActive}) => {
+                        return {color: isActive ? 'white' : '#b39e87' };}}
+                    to='/logIn'
+                >Log in</NavLink>
                 <NavLink 
-                style={({ isActive}) => {
-                    return {color: isActive ? 'white' : '#b39e87' };}}
-                to='/signUp'>Sign Up
-                </NavLink>
+                    style={({ isActive}) => {
+                        return {color: isActive ? 'white' : '#b39e87' };}}
+                    to='/signUp'
+                >Sign Up</NavLink>
             </>
                 }
             </div>

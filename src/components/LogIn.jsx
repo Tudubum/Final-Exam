@@ -5,9 +5,12 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 const LogIn = () => {
+
   const [failedLogIn, setFailedLogIn] = useState(false);
-  const navigate = useNavigate();
+
   const { users, setLoggedInUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (values, setSubmitting) => {
     const loggedInUser = users.find(user => user.email === values.email && user.password === values.password);
@@ -36,8 +39,7 @@ const LogIn = () => {
             password: ''
           }}
           validationSchema={validationSchema}
-          onSubmit={(values, { setSubmitting }) => handleSubmit(values, setSubmitting)}       >
-
+          onSubmit={(values, { setSubmitting }) => handleSubmit(values, setSubmitting)}>
           {({ errors, touched, values, setValues, isSubmitting }) => (
             <Form>
               <div>

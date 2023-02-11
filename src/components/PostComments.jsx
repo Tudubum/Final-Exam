@@ -1,35 +1,38 @@
-/*import AnswersContext from "../contexts/CommentsContext";
-import MessageForm from "./MessageForm";
-import Messages from "./Messages";
-import Post from "./Post";
-import { useContext } from "react";
 import PostContext from "../contexts/PostContext";
+import CommentsContext from "../contexts/CommentsContext";
+import Message from "../components/Message";
+import MessageForm from "../components/MessageForm"
+import Post from "../components/Post";
+
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 
+const PostComments = () => {
 
-const PostComments = ({data}) => {
+    const { id } = useParams();
+    const { post } = useContext(PostContext);    
+    const { answers } = useContext(CommentsContext);
 
-const { id } = useParams();
-
-  const { answers } = useContext(AnswersContext);
-  const {post} = useContext(PostContext)
-
-  const selectedQuestion = post.find(post => post.id.toString() === id);
-    console.log(selectedQuestion)
-    console.log(post)
-
-  const selectedQuestionAnswers = answers.filter(answer => answer.questionId === id);
-
-  return (
-    <>
-    <Post post={selectedQuestion}/>
-    <MessageForm />
-    <Messages answers={selectedQuestionAnswers} />
- 
+    const selectedPosts = post.find(post => post.id.toString() === id);
     
-    </>
-  );
-};
+    const selectedPostsAnswers = answers.filter(answer => answer.questionId.toString() === id);
+
+    return (
+      <>
+      <Post data={selectedPosts}/>
+      <MessageForm />
+      <div>
+            {
+                selectedPostsAnswers.map((answer, index) =>
+                <Message
+                   key={answer.id || index}
+                   data={answer}
+                   />
+                )
+            }
+        </div>
+      </>
+    );
+  }
 
 export default PostComments;
-*/

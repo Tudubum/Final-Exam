@@ -1,11 +1,8 @@
-
-
 import { createContext, useState, useEffect, useContext } from "react";
 import UserContext from "./UserContext"
-const AnswersContext = createContext();
 
-
-const AnswersProvider = ({children}) => {
+const CommentsContext = createContext();
+const CommentsProvider = ({children}) => {
 
     const [answers, setAnswers] = useState([]);
     const { loggedInUser } = useContext(UserContext);
@@ -75,7 +72,7 @@ const AnswersProvider = ({children}) => {
       }
       
     return(
-        <AnswersContext.Provider
+        <CommentsContext.Provider
           value={{
             addNewAnswers,
             deleteAnswer,
@@ -83,14 +80,12 @@ const AnswersProvider = ({children}) => {
             answers,
             handleLike,
             handleDisLike
-
           }}
-        
         >
         {children}
-        </AnswersContext.Provider>
+        </CommentsContext.Provider>
     );
 }
 
-export { AnswersProvider };
-export default AnswersContext;
+export { CommentsProvider };
+export default CommentsContext;

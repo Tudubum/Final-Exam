@@ -1,23 +1,24 @@
 import UserContext from "../contexts/UserContext";
-import AnswersContext from "../contexts/CommentsContext";
+import CommentsContext from "../contexts/CommentsContext";
 import { useContext, useState } from "react";
-import EditAnswer from "./EditMessage";
+import EditMessage from "./EditMessage";
 
-const Answer = ({ data }) => {
+const Message = ({ data }) => {
 
   const [isEditing, setIsEditing] = useState(false);
 
   const { users, loggedInUser } = useContext(UserContext);
-  const { deleteAnswer, handleLike, handleDisLike,updateAnswer } = useContext(AnswersContext);
+  const { deleteAnswer, handleLike, handleDisLike,updateAnswer } = useContext(CommentsContext);
 
   const AnswerOwner = users.find(user => user.id === data.userId);
-  const AnswerVote = data.likedBy.length - data.disLikedBy.length;
 
-  const toggleEdit = () => {
-    setIsEditing(!isEditing);
+  const answerLike = data.likedBy.length - data.disLikedBy.length;
+
+  const changeEditStatus = () => {
+    setIsEditing(!isEditing);//jei anksčiau redagavimo režimas buvo įjungtas, tada jis bus išjungtas, ir atvirkščiai.
   };
 
-  const onUpdate = (id, updatedAnswer) => {
+  const onEditComment = (id, updatedAnswer) => {
     updateAnswer(id, {
         ...updatedAnswer,
         isEdited: true,
@@ -25,7 +26,6 @@ const Answer = ({ data }) => {
     });
     setIsEditing(false);
   };
-
 
   return (
     <div className="AnswerCards">
@@ -42,55 +42,49 @@ const Answer = ({ data }) => {
           </div>
         </>
       }
-     
       {
         loggedInUser && loggedInUser.id === AnswerOwner.id &&
         <>
         <div className="ownerButtons">
           <button onClick={() => deleteAnswer(data.id)}>delete</button>
-          <button onClick={toggleEdit}>edit</button>
+          <button onClick={changeEditStatus}>edit</button>
         </div>  
         </>
       }
       </div>
-      <br/>
       <div className="line"></div>
-      <div className="AnswerCardDataInfo">
-      {isEditing ? (
-              <EditAnswer data={data} setIsEditing={setIsEditing} onUpdate={onUpdate} />
+      <div className="comments_Card">
+        {isEditing ? (
+            <EditMessage 
+                data={data} 
+                setIsEditing={setIsEditing} 
+                onEditComment={onEditComment} />
             ) : (
-        <>
-        <div><p>{AnswerVote} likes</p></div>
-      <div>
-      {data.isEdited && <p>Edited</p>}
-      <p>{data.timestamp} Posted</p>
-      <p className="comment_ANSWER">{data.answer}</p>
+          <>
+            <div><p>{answerLike} likes</p></div>
+              <div>
+                {data.isEdited && <p>Edited</p>}
+                <p>{data.timestamp} Posted</p>
+                <p className="comment_ANSWER">{data.answer}</p>
+              </div>
+          </>
+          )}
       </div>
-      </>
-      )}
-      </div>
-
-
       <div className="likeDislikeWrapper">
-        {loggedInUser &&
+      {loggedInUser &&
         <>
-       
       <button onClick={() => handleLike(data.id)} className="likeButton">
-  {data.likedBy.includes(loggedInUser.id) ? <i className="fa fa-thumbs-up"></i> : <i className="fa fa-thumbs-o-up"></i>}
-</button>
+          {data.likedBy.includes(loggedInUser.id) ? <i className="fa fa-thumbs-up"></i> : <i className="fa fa-thumbs-o-up"></i>}
+      </button>
       <button onClick={() => handleDisLike(data.id)} className="DisLikeButton">
-  {data.disLikedBy.includes(loggedInUser.id) ? <i className="fa fa-thumbs-down"></i> : <i className="fa fa-thumbs-o-down"></i>}
-</button>
-
-
-</>
-}
-</div>
-
+          {data.disLikedBy.includes(loggedInUser.id) ? <i className="fa fa-thumbs-down"></i> : <i className="fa fa-thumbs-o-down"></i>}
+      </button>
+      </>
+      }
     </div>
+  </div>
     
   );
-
 }
  
-export default Answer;
+export default Message;

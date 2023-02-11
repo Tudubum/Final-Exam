@@ -7,8 +7,8 @@ import { Formik, Form, Field } from 'formik';
 
 import UserContext from "../contexts/UserContext";
 
-
 const SignUp = () => {
+  
     const formInputs = useState({
         userName: '',
         email: '',

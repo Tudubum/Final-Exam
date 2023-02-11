@@ -257,11 +257,7 @@ input, textarea{
 }
 
 
-/*    FOOTERIS  
-footer{
-  min-height: calc(100vh - 80px - 2.5rem);
-}
-*/
+/*    FOOTERIS  */
 
 #footeris{
   position: absolute;
@@ -332,4 +328,5 @@ footer{
   height: 1px;
   background-color: black;
   width: 100px;
+  margin-top: 20px;
 }

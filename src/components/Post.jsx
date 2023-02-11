@@ -7,11 +7,8 @@ const Post = ({ data }) => {
 
     const { users, loggedInUser } = useContext(UserContext);
     const { deletePost, handleLike, handleDisLike} = useContext(PostContext);
-  
-
 
     const postOwner = users.find(user => user.id === data.userId);
-
 
 // eslint-disable-next-line
     const PostVote = data.likedBy && data.likedBy.length - (data.disLikedBy && data.disLikedBy.length || 0);
@@ -22,9 +19,9 @@ const Post = ({ data }) => {
         <div className="postOwnerInfo">
             <div className="user_AVATAR" >
                <img 
-                className="avatarImg"
-                src={postOwner.image} 
-                alt="userAvatar" />
+                    className="avatarImg"
+                    src={postOwner.image} 
+                    alt="userAvatar" />
                 <h5>{postOwner.userName}</h5>  
             </div>
             <div className="buttonsLikes">
@@ -65,8 +62,7 @@ const Post = ({ data }) => {
         </div>
         </div>
     </div>
-    );
-    
+    ); 
   };
 
   export default Post;

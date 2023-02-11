@@ -1,4 +1,4 @@
-import UserContext from "../contexts/UserContext";
+/*import UserContext from "../contexts/UserContext";
 import CommentsContext from "../contexts/CommentsContext";
 import { useContext } from "react";
 import Message from "./Message";
@@ -16,7 +16,7 @@ const UserPostedMessage = () => {
           .map(message => 
             <Message 
               key={message.id}
-              chatData={message}
+              data={message}
             />  
           )
       }
@@ -25,3 +25,4 @@ const UserPostedMessage = () => {
 }
  
 export default UserPostedMessage;
+*/
