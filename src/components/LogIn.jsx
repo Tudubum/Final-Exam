@@ -70,7 +70,7 @@ const LogIn = () => {
                   }
                 </label>
               </div>
-              <button type="submit" disabled={isSubmitting}>
+              <button type="submit" className="submit" disabled={isSubmitting}>
                 Log In
               </button>
               {

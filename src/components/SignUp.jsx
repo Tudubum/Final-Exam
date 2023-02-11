@@ -61,10 +61,13 @@ const SignUp = () => {
     
         const validationSchema = Yup.object().shape({
           userName: Yup.string()
-            .max (15, 'Must be 10 characters or less')
+            .max (15, 'Must be 8 characters or less')
             .required ('Required'),
           email: Yup.string()
             .email('This input must be a valid email.')
+            .test('email-exists', 'Email already exists', value => {
+              return users.find(user => user.email === value) ? false : true;
+            })
             .required('This field must be filled.'),
           password: Yup.string()
              .min(5)
@@ -79,7 +82,7 @@ const SignUp = () => {
       })
     
       return (
-        <>
+        <div className="sign_up_FORM">
         
         <Formik 
           initialValues={formInputs}
@@ -88,10 +91,7 @@ const SignUp = () => {
         >
           {({ values, errors, touched, setValues }) => (
             <Form className="forma">
-              <div className="background">
-            <div className="shape"></div>
-            <div className="shape"></div>
-        </div>
+           
         <div className="SignUp-form">
           <h3>Sign Up</h3>
         <div className="wrapper">
@@ -168,13 +168,13 @@ const SignUp = () => {
               ) : null}
             </label>
             </div>
-            <input type="submit" value="SignUp" />
+            <input type="submit" className="submit" value="SignUp" />
             </div>
           </Form>
           )}
     </Formik> 
     
-        </>
+        </div>
     
       );
     }

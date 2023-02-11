@@ -52,7 +52,7 @@ const AnswersProvider = ({children}) => {
     };
 
     const handleLike = async (id) => {
-        const updatedAnswer= answers.find(answer => answer.id === id);
+        const updatedAnswer = answers.find(answer => answer.id === id);
         if(!updatedAnswer.likedBy.includes(loggedInUser.id)) {
             updatedAnswer.likedBy.push(loggedInUser.id);
             updatedAnswer.disLikedBy = updatedAnswer.disLikedBy.filter(userId => userId !== loggedInUser.id);

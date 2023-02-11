@@ -14,16 +14,18 @@ const PostOwnerPosts = () => {
 
   return (
     <div className="pageContainer">
-        <div className="sideMenu">
-        <NavLink
+    <div className="userContent">
+      <div className="userPage_nav">
+          <h2>All your posts</h2>
+      <NavLink
             style={({ isActive}) => {
                 return {color: isActive ? 'white' : '#b39e87' };}}
             to="/liked"
             >
             Liked posts
             </NavLink>
-    </div>
-    <div className="userContent">
+      </div>
+    
   {
         post
           .filter(post => post.userId === loggedInUser.id)

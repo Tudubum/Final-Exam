@@ -38,33 +38,33 @@ const Answer = ({ data }) => {
             src={AnswerOwner.image}
             alt="user avatar" 
           />
-          <span>{AnswerOwner.userName}</span>
+          <h5>{AnswerOwner.userName}</h5>
           </div>
         </>
       }
-      
+     
       {
         loggedInUser && loggedInUser.id === AnswerOwner.id &&
         <>
         <div className="ownerButtons">
-          <button onClick={() => deleteAnswer(data.id)}><i className="fa fa-trash" /></button>
-          <button onClick={toggleEdit}><i className="fa fa-edit" /></button>
+          <button onClick={() => deleteAnswer(data.id)}>delete</button>
+          <button onClick={toggleEdit}>edit</button>
         </div>  
         </>
       }
       </div>
       <br/>
-
+      <div className="line"></div>
       <div className="AnswerCardDataInfo">
       {isEditing ? (
               <EditAnswer data={data} setIsEditing={setIsEditing} onUpdate={onUpdate} />
             ) : (
         <>
-        <div><p>{AnswerVote} vote</p></div>
+        <div><p>{AnswerVote} likes</p></div>
       <div>
       {data.isEdited && <p>Edited</p>}
-      <p>{data.timestamp}</p>
-      <p>{data.answer}</p>
+      <p>{data.timestamp} Posted</p>
+      <p className="comment_ANSWER">{data.answer}</p>
       </div>
       </>
       )}

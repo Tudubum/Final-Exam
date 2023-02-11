@@ -8,24 +8,32 @@ import AddPostForm from './components/AddPostForm';
 import EditPost from './components/EditPost';
 import PostOwnerPosts from './components/PostOwnerPosts';
 import LikedPosts from './components/LikedPosts';
-import MessageForm from './components/MessageForm';
+//import MessageForm from './components/MessageForm';
 import PostComments from './components/PostComments';
+
+import AnswerPage from './components/AnswerPage';
+import Footer from './components/Footer';
+
+
+//  <Route path="/messageForm/:id" element={<MessageForm/>}/>
+
 
 function App() {
   return (
    <>
-    <Navbar/>
+  <Navbar/>
     <Routes>
+        <Route path="/" element={<Home />}/>
         <Route path="/signUp" element={<SignUp />}/>
         <Route path="/logIn" element={<LogIn />}/>
-        <Route path="/" element={<Home />}/>
         <Route path="/add" element={<AddPostForm />}/>
         <Route path="/editPost/:id" element={<EditPost/>}/>
+        <Route path="/post/:id" element={<AnswerPage/>}/>
+
         <Route path="/postOwnerPosts" element={<PostOwnerPosts/>}/>
         <Route path="/liked" element={<LikedPosts/>}/>
-        <Route path="/messageForm/:id" element={<MessageForm/>}/>
-        <Route path="/post/:id" element={<PostComments/>}/>
     </Routes>
+    <Footer/>
     
    </>
   );

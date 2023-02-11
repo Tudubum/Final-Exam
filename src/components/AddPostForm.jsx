@@ -1,7 +1,7 @@
 import PostContext from "../contexts/PostContext";
 import UserContext from "../contexts/UserContext";
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const AddPostForm = () => {
 
@@ -10,7 +10,7 @@ const AddPostForm = () => {
       description: '',
    
     });
-  
+      const { id } = useParams;
       const { addNewPost } = useContext(PostContext);
       const { loggedInUser } = useContext(UserContext);
     
@@ -33,9 +33,18 @@ const AddPostForm = () => {
         navigation('/');
       }
     
+      if (!loggedInUser) {
+        return (
+          <div>
+            <h3>Please log in to add a new post.</h3>
+          </div>
+        );
+      }
+      
       return (
          <>
-         <div className="placeForm">
+         
+         <div className="postForm">
          <h3>ADD NEW POST</h3>
              <form onSubmit={handleSubmit}>
                  <label>

@@ -2,7 +2,7 @@ import PostContext from "../contexts/PostContext";
 import { useContext } from "react";
 import Post from "./Post";
 
-const Posts = () => {
+const Posts = ({postToShow}) => {
     const { post } = useContext(PostContext);
   
     return (

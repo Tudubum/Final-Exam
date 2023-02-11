@@ -39,8 +39,9 @@ const AddAnswer = ( ) => {
     return(
         <form onSubmit={handleSubmit} className="AddAnswer-form">
         <label>
-          Answer:
+          Here you could leave your Answer:
           <textarea type="text" name="answer"
+          placeholder="type here..."
             value={formInputs.answer}
             onChange={(e) => setFormInputs({...formInputs, answer:e.target.value})}
           />

@@ -5,29 +5,30 @@ import UserContext from "./UserContext";
 const PostContext = createContext();
 
 const PostProvider = ({children}) =>{
+
     const [post, setPost] = useState([]);
     const { loggedInUser } = useContext(UserContext);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const data = async () => {
             const res = await fetch('http://localhost:3000/posts');
             const data = await res.json();
             setPost(data);
         };
-        fetchData();
+        data();
     },[]);
 
 
 const addNewPost = async (newPost) => {
-    const res = await fetch('http://localhost:3000/posts', {
+     await fetch('http://localhost:3000/posts', {
         method: 'POST',
+        body: JSON.stringify(newPost),
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newPost)
-    });
-    const data = await res.json();
-    setPost([...post, data]);
+        }
+    }) 
+    .then(res => res.json())
+    .then(data => setPost([...post, data]));
 }
 
 const deletePost = async (id) => {
@@ -41,16 +42,15 @@ const deletePost = async (id) => {
   };
 
   const updatePost = async (id, updatedPost ) => {
-    updatedPost.isEdited = true;
     await fetch(`http://localhost:3000/posts/${id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       body: JSON.stringify(updatedPost),
       headers: { 'Content-Type': 'application/json' },
     }).then(res => {
       if(res.ok){
         setPost(post.map(post => post.id.toString() === id? {...post, ...updatedPost} : post));
       }
-    }).catch(error => console.error(error));
+    })
   };
   
   const handleLike = async (id) => {
@@ -64,7 +64,7 @@ const deletePost = async (id) => {
     await updatePost(id, updatedPost);
   }
 
-const handleDislike = async (id) => {
+const handleDisLike = async (id) => {
   const updatedPost= post.find(post => post.id === id);
   if(!updatedPost.disLikedBy.includes(loggedInUser.id)) {
       updatedPost.disLikedBy.push(loggedInUser.id);
@@ -85,7 +85,7 @@ return (
             deletePost,
             updatePost,
             handleLike,
-            handleDislike
+            handleDisLike
             
             
         }}
