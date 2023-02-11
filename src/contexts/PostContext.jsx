@@ -10,12 +10,12 @@ const PostProvider = ({children}) =>{
     const { loggedInUser } = useContext(UserContext);
 
     useEffect(() => {
-        const data = async () => {
+        const fetchData = async () => {
             const res = await fetch('http://localhost:3000/posts');
             const data = await res.json();
             setPost(data);
         };
-        data();
+        fetchData();
     },[]);
 
 

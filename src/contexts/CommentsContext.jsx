@@ -8,12 +8,12 @@ const CommentsProvider = ({children}) => {
     const { loggedInUser } = useContext(UserContext);
 
     useEffect(() => {
-        const data = async () => {
+        const fetchData = async () => {
             const res = await fetch("http://localhost:3000/answers");
             const data = await res.json();
             setAnswers(data);
         };
-        data();
+        fetchData();
     }, []);
     
     const addNewAnswers = async (newAnswers) =>{
