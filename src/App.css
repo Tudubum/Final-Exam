@@ -165,14 +165,6 @@ font-weight: 500;
   min-width: 100px;
 }
 
-/*
-.post_CONTENT{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-*/
-
 .user_AVATAR{
   display: flex;
   flex-direction: column;
@@ -212,6 +204,10 @@ font-weight: 500;
 .selected {
   text-decoration: underline;
   font-weight: bold;
+}
+
+.h3_subtitle{
+  margin: 30px 40px 0 40px;
 }
 
 /*  ADD POST FORM */

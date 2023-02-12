@@ -2,7 +2,6 @@ import PostContext from "../contexts/PostContext";
 import UserContext from "../contexts/UserContext";
 
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const AddPostForm = () => {
 
@@ -15,7 +14,6 @@ const AddPostForm = () => {
       const { addNewPost } = useContext(PostContext);
       const { loggedInUser } = useContext(UserContext);
     
-      const navigation = useNavigate();
     
       const handleSubmit = e => {
         e.preventDefault();
@@ -30,9 +28,12 @@ const AddPostForm = () => {
           disLikedBy: [],
         };
     
+        if (!formInputs.title || !formInputs.description) {
+            return alert("Title and description are required fields!");
+        }
+    
         addNewPost(newPost);
-        navigation('/');
-      }
+    }
     
       if (!loggedInUser) {
         return (

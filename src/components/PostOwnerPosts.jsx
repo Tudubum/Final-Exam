@@ -16,7 +16,7 @@ const PostOwnerPosts = () => {
     <div className="pageContainer">
     <div className="userContent">
       <div className="userPage_nav">
-          <h2>All your posts</h2>
+          <h3>All your posts</h3>
       <NavLink
             style={({ isActive}) => {
                 return {color: isActive ? 'white' : '#b39e87' };}}

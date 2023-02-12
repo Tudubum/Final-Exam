@@ -53,53 +53,55 @@ const SortComments = () => {
       };
 
 
-    const handleButtonClick = (button) => {
+      const handleButtonClick = (button) => {
         setSelectedButton(button);
-      };
+        if (button === 'newest') {
+          sortFromNewest();
+        }
+      }
   
     return (
       <>
           <>
           <div className="sort_buttons">
-    <button 
-      className={selectedButton === 'newest' ? 'selected' : ''}
-      onClick={() => {
-        handleButtonClick('newest');
-        sortFromNewest();
-      }}
-    >
-      Seniausi postai
-    </button>
-    <button 
-      className={selectedButton === 'oldest' ? 'selected' : ''}
-      onClick={() => {
-        handleButtonClick('oldest');
-        sortFromOldest();
-      }}
-    >
-      Naujausi postai
-    </button>
- 
-  <button 
-      className={selectedButton === 'commented' ? 'selected' : ''}
-      onClick={() => {
-        handleButtonClick('commented');
-        commentedPosts();
-      }}
-    >
-      Atsakyti postai
-    </button>
-  <button 
-      className={selectedButton === 'uncommented' ? 'selected' : ''}
-      onClick={() => {
-        handleButtonClick('uncommented');
-        uncommentedPosts();
-      }}
-    >
-      Ne Atsakyti postai
-    </button>
-  </div>
-          </>
+             <button 
+                className={selectedButton === 'newest' ? 'selected' : ''}
+                onClick={() => {
+              handleButtonClick('newest');
+              sortFromNewest();
+            }}
+            >
+            Seniausi postai
+            </button>
+            <button 
+                className={selectedButton === 'oldest' ? 'selected' : ''}
+                onClick={() => {
+            handleButtonClick('oldest');
+            sortFromOldest();
+            }}
+           >
+            Naujausi postai
+            </button>
+            <button 
+                className={selectedButton === 'commented' ? 'selected' : ''}
+                onClick={() => {
+              handleButtonClick('commented');
+              commentedPosts();
+            }}
+            >
+            Atsakyti postai
+            </button>
+            <button 
+                className={selectedButton === 'uncommented' ? 'selected' : ''}
+                onClick={() => {
+            handleButtonClick('uncommented');
+            uncommentedPosts();
+            }}
+          >
+          Ne Atsakyti postai
+          </button>
+        </div>
+      </>
         <Posts showPosts={showPosts} />
       </>
     );

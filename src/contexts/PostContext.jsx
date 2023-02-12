@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { useContext } from "react";
 import UserContext from "./UserContext";
+import { useNavigate } from "react-router-dom";
+
 
 const PostContext = createContext();
 
@@ -8,6 +10,8 @@ const PostProvider = ({children}) =>{
 
     const [post, setPost] = useState([]);
     const { loggedInUser } = useContext(UserContext);
+    const navigation = useNavigate();
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,16 +24,19 @@ const PostProvider = ({children}) =>{
 
 
 const addNewPost = async (newPost) => {
-     await fetch('http://localhost:3000/posts', {
-        method: 'POST',
-        body: JSON.stringify(newPost),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }) 
-    .then(res => res.json())
-    .then(data => setPost([...post, data]));
-}
+      await fetch('http://localhost:3000/posts', {
+          method: 'POST',
+          body: JSON.stringify(newPost),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      }) 
+      .then(res => res.json())
+      .then(data => {
+          setPost([...post, data]);
+          navigation('/');
+      });
+  }
 
 const deletePost = async (id) => {
     await fetch(`http://localhost:3000/posts/${id}`, {

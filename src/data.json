@@ -43,10 +43,11 @@
       "userId": 0,
       "isEdited": true,
       "likedBy": [
-        1675686436703,
-        0
+        1675686436703
       ],
-      "disLikedBy": []
+      "disLikedBy": [
+        0
+      ]
     },
     {
       "title": "Kokią vonią geriau rinktis?",
