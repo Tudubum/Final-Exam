@@ -12,6 +12,7 @@ import PostOwnerPosts from './components/PostOwnerPosts';
 import LikedPosts from './components/LikedPosts';
 import PostComments from './components/PostComments';
 import Footer from './components/Footer';
+import AllPosts from './components/AllPosts';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path="/post/:id" element={<PostComments/>}/>
       <Route path="/postOwnerPosts" element={<PostOwnerPosts/>}/>
       <Route path="/liked" element={<LikedPosts/>}/>
+      <Route path="/allPosts" element={<AllPosts/>}/>
     </Routes>
     <Footer/>
   </>

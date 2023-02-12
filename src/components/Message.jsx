@@ -22,7 +22,7 @@ const Message = ({ data }) => {
     updateAnswer(id, {
         ...updatedAnswer,
         isEdited: true,
-        timestamp: new Date().toLocaleString()
+        time: new Date().toLocaleString()
     });
     setIsEditing(false);
   };
@@ -64,7 +64,7 @@ const Message = ({ data }) => {
             <div><p>{answerLike} likes</p></div>
               <div>
                 {data.isEdited && <p>Edited</p>}
-                <p>{data.timestamp} Posted</p>
+                <p>{data.time} Posted</p>
                 <p className="comment_ANSWER">{data.answer}</p>
               </div>
           </>

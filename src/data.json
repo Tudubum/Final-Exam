@@ -10,12 +10,12 @@
     {
       "userName": "Laurynas",
       "email": "laurynas@gmail.com",
-      "password": "Kempiniukas11",
+      "password": "Laurynas1",
       "image": "https://img.freepik.com/free-icon/man_318-157599.jpg",
       "id": 1675686436703
     },
     {
-      "userName": "Babilonas",
+      "userName": "Benas",
       "email": "babilonas@gmail.com",
       "password": "Babilonas1",
       "image": "https://cdn-icons-png.flaticon.com/512/147/147144.png",
@@ -24,10 +24,10 @@
   ],
   "posts": [
     {
-      "title": "Kas Jums padeda išsirinkti interjero spalvas?",
-      "description": "Man namai yra viskas! Tai ne tik dėžutė, kurioje tu miegi ir valgai, tai turi buti vieta i kuria VISADA noretusi sugrizti, visada butu jauku, silta, gera ir kas liecia interjera megstu posaki 'namai su charakteriu'. Labai daznai pastebiu, pas laaaabai daug zmoniu, namams truksta kazkokiu idomiu detaliu, dazniausiai bijo eksperimentuoti su spalvomis ir daznai buna salti, kur nesinori padet plikos kojos ant grindu. Tad norėjau paklausti kas Jums padeda išsirinkti spalvas? Gal turite kokių tip'sų?",
-      "timestamp": "11/02/2023, 11:07:47",
-      "isEdited": false,
+      "title": "Vinilinės grindys",
+      "description": "Sveiki, norim visą butą dėti vinilines grindis. Virtuvė sujungta su svetaine. Virtuveje plytelės-šildomos grindys, o svetainėje laminatas- nešildoma. Grindys dabar vienodo aukščio, tai jeigu dėtume vinilą tiesiai ant plytelių bei laminato viršaus ar tinkamas sprendimas būtų? Ar neprarastų šilumos virtuvės grindys? Ar dėti paklotą dar apačioje? Jei dėti, tai kokio storio? Koks vinilas click ar tik klijuojamas??",
+      "time": "10/02/2023, 15:54:46",
+      "isEdited": true,
       "id": 1,
       "userId": 1675686436703,
       "likedBy": [
@@ -36,9 +36,9 @@
       "disLikedBy": []
     },
     {
-      "title": "Balintos Sienos :))))))",
-      "description": "Kambario sienos",
-      "timestamp": "11/02/2023, 12:09:36",
+      "title": "Sienos spalva",
+      "description": "Sveiki. Reikia sienų dažų rekomendacijų. Bus balta netonuota spalva. Pagrindinis reikalavimas - kad būtų gerai valomi/plaunami, nes namie yra mažų vaikų. Kokius rinkotės: Flugger, Tikkurila, Brilux... tiek jų dabar daug, pasimetėm 🙂",
+      "time": "12/02/2023, 15:10:08",
       "id": 1676097954534,
       "userId": 0,
       "isEdited": true,
@@ -47,31 +47,77 @@
         0
       ],
       "disLikedBy": []
+    },
+    {
+      "title": "Kokią vonią geriau rinktis?",
+      "description": "Sveiki. Pirmą kartą susidūrėme su vonios pasirinkimu ir nelabai turime tame patirties. Kas turite vonias, pasidalinkite patirtimi kokia geriau pirkti? Akrilinę? Akmens masės? \nKaip su priežiūra ir pan? 😉",
+      "time": "09/02/2023, 15:00:43",
+      "id": 1676206843849,
+      "userId": 1676057039852,
+      "isEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "title": "Pelėsis",
+      "description": "Prašau patarkite.\nKampinis butas, dvi sienos šaltos ir kampuose pelija.\nKaip patartumėte jas apšildinti, su karkasu ar klijuoti tiesiai ant sienos, kokiomis medžiagomis? Ir ką daryti su vamzdžiu (jame teka karštas vanduo, gal buvo planuota daryti radiatorius, bet persigalvota) jį apeiti ir palikti atvirą ar slėpti po apšiltinimo medžiagomis?\nAčiū!",
+      "time": "12/02/2023, 18:33:14",
+      "id": 1676219594652,
+      "userId": 0,
+      "isEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
     }
   ],
   "answers": [
     {
-      "answer": "niaaaam niaaaam 3333333 :))))\n",
-      "id": 1676110488739,
-      "userId": 0,
-      "questionId": 1,
-      "timestamp": "11/02/2023, 17:57:01",
-      "isEdited": true,
-      "likedBy": [
-        0
-      ],
+      "answer": "Mes rinkomės akmens masės. Akrilinę turim, per laiką kažkaip labai susibraižė.\n",
+      "id": 1676207020865,
+      "userId": 1675686436703,
+      "questionId": 1676206843849,
+      "time": "12/02/2023, 15:03:40",
+      "isEdited": false,
+      "likedBy": [],
       "disLikedBy": []
     },
     {
-      "answer": "wow",
-      "id": 1676126664611,
+      "answer": "Flugger patys geriausi , namie du maži vaikai 🙂",
+      "id": 1676207608801,
+      "userId": 1675686436703,
+      "questionId": 1676097954534,
+      "time": "12/02/2023, 15:13:28",
+      "isEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "answer": "Mes flugger rinkomės ☺️ Esame patenkinti. Nors kaina aukšta, bet tikai verta investuoti.",
+      "id": 1676207778806,
+      "userId": 1676057039852,
+      "questionId": 1676097954534,
+      "time": "12/02/2023, 15:16:18",
+      "isEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "answer": "Prieš tris metus mums toks klausimas buvo iškilęs, tai sudėjome ant šildomų plytelių \"click\" vinilinę dangą su integruotu paklotu, ir viskas gerai. Nžn kiek tai turi įtakos šilumos perdavimui, bet mūsų vinilo kaina šios dienos kainomis apie 50eur/M2.\n",
+      "id": 1676210144459,
       "userId": 0,
       "questionId": 1,
-      "timestamp": "11/02/2023, 16:44:24",
+      "time": "12/02/2023, 15:55:44",
       "isEdited": false,
-      "likedBy": [
-        0
-      ],
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "answer": "Mano kaip grindu klojejo nuomone, deti vinila tiesiai ant laminato, tai labai blogas sprendimas. Lupti lauk laminata ir plyteles, lieti islyginamaji sluoksni ir kloti klijuojama vinila. Arba click jei click labaiu patinka.",
+      "id": 1676210189616,
+      "userId": 1676057039852,
+      "questionId": 1,
+      "time": "12/02/2023, 15:56:29",
+      "isEdited": false,
+      "likedBy": [],
       "disLikedBy": []
     }
   ]

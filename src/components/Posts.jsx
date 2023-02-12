@@ -1,14 +1,11 @@
-import PostContext from "../contexts/PostContext";
-import { useContext } from "react";
 import Post from "./Post";
 
-const Posts = () => {
-    const { post } = useContext(PostContext);
+const Posts = ({showPosts}) => {
   
     return (
       <div className="Cards">
-        { post ?
-            post.map((post, index) =>
+        { showPosts ?
+            showPosts.map((post, index) =>
               <Post 
               key={post.id || index}
               data={post}
@@ -16,7 +13,7 @@ const Posts = () => {
          )
         :
         <div className="loading">
-            <h1>loading...</h1>
+            <h1>Loading...</h1>
         </div>
         } 
       </div>

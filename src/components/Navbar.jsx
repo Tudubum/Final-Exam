@@ -25,12 +25,16 @@ return (
                 <NavLink
                     className="addPost"
                     style={({ isActive}) => {
-                        return {color: isActive ? 'white' : '#b39e87' };}}
+                        return {color: isActive ? 'white' : '#b39e87',
+                        textDecoration: isActive ? 'underline' : 'none',
+                    };}}
                     to="/add"
                 >Add Post</NavLink>
                 <NavLink
                     style={({ isActive}) => {
-                        return {color: isActive ? 'white' : '#b39e87' };}}
+                        return {color: isActive ? 'white' : '#b39e87',
+                        textDecoration: isActive ? 'underline' : 'none',
+                    };}}
                     to="/">Home</NavLink>
                 <UserProfile/>
                 {loggedInUser && (
@@ -44,14 +48,18 @@ return (
                 <>
                 <NavLink
                     style={({ isActive}) => {
-                        return {color: isActive ? 'white' : '#b39e87' };}}
+                        return {color: isActive ? 'white' : '#b39e87',
+                        textDecoration: isActive ? 'underline' : 'none',
+                    };}}
                     to="/"
                 >Home</NavLink>
                 </>
                 <NavLink 
                     className="login"
                     style={({ isActive}) => {
-                        return {color: isActive ? 'white' : '#b39e87' };}}
+                        return {color: isActive ? 'white' : '#b39e87',
+                        textDecoration: isActive ? 'underline' : 'none',
+                    };}}
                     to='/logIn'
                 >Log in</NavLink>
                 <NavLink 

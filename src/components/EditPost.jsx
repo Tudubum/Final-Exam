@@ -15,13 +15,13 @@ const EditPost = () => {
   const [formInputs, setFormInputs] = useState({
     title: currentPost.title,
     description: currentPost.description,
-    timestamp: currentPost.timestamp,
+    time: currentPost.time,
     isEdited: currentPost.isEdited
   });
   
   const handleSubmit = e => {
     e.preventDefault();
-    updatePost(id, {...formInputs, timestamp: new Date().toLocaleString(), isEdited: true});
+    updatePost(id, {...formInputs, time: new Date().toLocaleString(), isEdited: true});
     navigation('/');
   }
 

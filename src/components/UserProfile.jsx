@@ -10,7 +10,9 @@ const UserProfile = () => {
         <>
         <NavLink
             style={({ isActive}) => {
-                return {color: isActive ? 'white' : '#b39e87' };}}
+                return {color: isActive ? 'white' : '#b39e87',
+                textDecoration: isActive ? 'underline' : 'none',
+            };}}
                 to="/postOwnerPosts"
                 >{loggedInUser.userName}
             </NavLink>

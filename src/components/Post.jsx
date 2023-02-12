@@ -41,16 +41,20 @@ const Post = ({ data }) => {
         </div>
         <div className="post_CONTENT">
             <div className="postInfo">
-                <Link to={`/post/${data.id}`}>{data.title}</Link>
+                <div className="title_Edited">
+                     <Link to={`/post/${data.id}`}>{data.title}</Link>
+                    <p className="edit-label">{data.isEdited ? ' ✓ edited' : ''}</p>
+                </div>
                 <p>{data.description}</p>
             </div>
-            <div className="deleteditBtn">
+            
             {loggedInUser && loggedInUser.id === data.userId && (
-                <>
+                <><div className="deleteditBtn">
                     <button className="btn" onClick={() => deletePost(data.id)}>Delete</button>
                     <button className="btn">
                         <Link to={`/editPost/${data.id}`}>Edit</Link>
                     </button>
+                    </div>
                 </>
             )}
            {loggedInUser && loggedInUser.id !== data.userId && (
@@ -58,8 +62,8 @@ const Post = ({ data }) => {
                     <Link to={`/post/${data.id}`}>Answer</Link>
                  </button>
             )}
-              <p className="edit-label">{data.isEdited ? ' ✓ Post was edited' : ''}</p>
-        </div>
+       
+        <p className="postedTime">Posted - {data.time}</p>
         </div>
     </div>
     ); 

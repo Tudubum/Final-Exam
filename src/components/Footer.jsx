@@ -3,7 +3,7 @@ const Footer = () => {
         <>
             <footer id="footeris">
                 <div className="footer_content">
-                    <h3>&copy; Copyright 2023 FOUR SEASONS</h3>
+                    <h3>&copy; Copyright 2023 Home Chat</h3>
                 </div>
             </footer>
         </>

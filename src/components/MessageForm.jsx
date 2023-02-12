@@ -22,7 +22,7 @@ const MessageForm = ( ) => {
             id: Date.now(),
             userId: loggedInUser.id,
             questionId: Number(id),
-            timestamp: new Date().toLocaleString(),
+            time: new Date().toLocaleString(),
             isEdited: false,
             likedBy: [],
             disLikedBy: []

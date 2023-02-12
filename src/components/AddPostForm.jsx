@@ -22,12 +22,12 @@ const AddPostForm = () => {
         const newPost = {
           title: formInputs.title,
           description: formInputs.description,
-          timestamp: new Date().toLocaleString(),
+          time: new Date().toLocaleString(),
           id: Date.now(),
           userId: loggedInUser.id,
           isEdited: false,
           likedBy: [],
-          disLikedBy: []
+          disLikedBy: [],
         };
     
         addNewPost(newPost);

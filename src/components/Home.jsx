@@ -1,9 +1,10 @@
-import Posts from "./Posts";
+import AllPosts from "./AllPosts";
 
 const Home = () => {
+
     return ( 
         <>
-            <Posts/>
+            <AllPosts />
         </>
      );
 }
