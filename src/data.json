@@ -38,7 +38,7 @@
     {
       "title": "Sienos spalva",
       "description": "Sveiki. Reikia sienų dažų rekomendacijų. Bus balta netonuota spalva. Pagrindinis reikalavimas - kad būtų gerai valomi/plaunami, nes namie yra mažų vaikų. Kokius rinkotės: Flugger, Tikkurila, Brilux... tiek jų dabar daug, pasimetėm 🙂",
-      "time": "12/02/2023, 15:10:08",
+      "time": "12/02/2023, 20:49:29",
       "id": 1676097954534,
       "userId": 0,
       "isEdited": true,
@@ -69,9 +69,9 @@
       "disLikedBy": []
     }
   ],
-  "answers": [
+  "comments": [
     {
-      "answer": "Mes rinkomės akmens masės. Akrilinę turim, per laiką kažkaip labai susibraižė.\n",
+      "comment": "Mes rinkomės akmens masės. Akrilinę turim, per laiką kažkaip labai susibraižė.\n",
       "id": 1676207020865,
       "userId": 1675686436703,
       "questionId": 1676206843849,
@@ -81,7 +81,7 @@
       "disLikedBy": []
     },
     {
-      "answer": "Flugger patys geriausi , namie du maži vaikai 🙂",
+      "comment": "Flugger patys geriausi , namie du maži vaikai 🙂",
       "id": 1676207608801,
       "userId": 1675686436703,
       "questionId": 1676097954534,
@@ -91,7 +91,7 @@
       "disLikedBy": []
     },
     {
-      "answer": "Mes flugger rinkomės ☺️ Esame patenkinti. Nors kaina aukšta, bet tikai verta investuoti.",
+      "comment": "Mes flugger rinkomės ☺️ Esame patenkinti. Nors kaina aukšta, bet tikai verta investuoti.",
       "id": 1676207778806,
       "userId": 1676057039852,
       "questionId": 1676097954534,
@@ -101,7 +101,7 @@
       "disLikedBy": []
     },
     {
-      "answer": "Prieš tris metus mums toks klausimas buvo iškilęs, tai sudėjome ant šildomų plytelių \"click\" vinilinę dangą su integruotu paklotu, ir viskas gerai. Nžn kiek tai turi įtakos šilumos perdavimui, bet mūsų vinilo kaina šios dienos kainomis apie 50eur/M2.\n",
+      "comment": "Prieš tris metus mums toks klausimas buvo iškilęs, tai sudėjome ant šildomų plytelių \"click\" vinilinę dangą su integruotu paklotu, ir viskas gerai. Nžn kiek tai turi įtakos šilumos perdavimui, bet mūsų vinilo kaina šios dienos kainomis apie 50eur/M2.\n",
       "id": 1676210144459,
       "userId": 0,
       "questionId": 1,
@@ -111,7 +111,7 @@
       "disLikedBy": []
     },
     {
-      "answer": "Mano kaip grindu klojejo nuomone, deti vinila tiesiai ant laminato, tai labai blogas sprendimas. Lupti lauk laminata ir plyteles, lieti islyginamaji sluoksni ir kloti klijuojama vinila. Arba click jei click labaiu patinka.",
+      "comment": "Mano kaip grindu klojejo nuomone, deti vinila tiesiai ant laminato, tai labai blogas sprendimas. Lupti lauk laminata ir plyteles, lieti islyginamaji sluoksni ir kloti klijuojama vinila. Arba click jei click labaiu patinka.",
       "id": 1676210189616,
       "userId": 1676057039852,
       "questionId": 1,

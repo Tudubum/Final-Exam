@@ -8,19 +8,19 @@ const Message = ({ data }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const { users, loggedInUser } = useContext(UserContext);
-  const { deleteAnswer, handleLike, handleDisLike,updateAnswer } = useContext(CommentsContext);
+  const { deleteComment, handleLike, handleDisLike,updateComment } = useContext(CommentsContext);
 
-  const AnswerOwner = users.find(user => user.id === data.userId);
+  const CommentOwner = users.find(user => user.id === data.userId);
 
-  const answerLike = data.likedBy.length - data.disLikedBy.length;
+  const commentLike = data.likedBy.length - data.disLikedBy.length;
 
   const changeEditStatus = () => {
     setIsEditing(!isEditing);//jei anksčiau redagavimo režimas buvo įjungtas, tada jis bus išjungtas, ir atvirkščiai.
   };
 
-  const onEditComment = (id, updatedAnswer) => {
-    updateAnswer(id, {
-        ...updatedAnswer,
+  const onEditComment = (id, updatedComment) => {
+    updateComment(id, {
+        ...updatedComment,
         isEdited: true,
         time: new Date().toLocaleString()
     });
@@ -28,25 +28,25 @@ const Message = ({ data }) => {
   };
 
   return (
-    <div className="AnswerCards">
+    <div className="CommentsCards">
       <div className="ownerInfo">
-      {AnswerOwner && 
+      {CommentOwner && 
         <>
-        <div className="answer-info">
+        <div className="comment-info">
           <img
             className="avatarImg"
-            src={AnswerOwner.image}
+            src={CommentOwner.image}
             alt="user avatar" 
           />
-          <h5>{AnswerOwner.userName}</h5>
+          <h5>{CommentOwner.userName}</h5>
           </div>
         </>
       }
       {
-        loggedInUser && loggedInUser.id === AnswerOwner.id &&
+        loggedInUser && loggedInUser.id === CommentOwner.id &&
         <>
         <div className="ownerButtons">
-          <button onClick={() => deleteAnswer(data.id)}>delete</button>
+          <button onClick={() => deleteComment(data.id)}>delete</button>
           <button onClick={changeEditStatus}>edit</button>
         </div>  
         </>
@@ -61,11 +61,11 @@ const Message = ({ data }) => {
                 onEditComment={onEditComment} />
             ) : (
           <>
-            <div><p>{answerLike} likes</p></div>
+            <div><p>{commentLike} likes</p></div>
               <div>
                 {data.isEdited && <p>Edited</p>}
                 <p>{data.time} Posted</p>
-                <p className="comment_ANSWER">{data.answer}</p>
+                <p className="comment">{data.comment}</p>
               </div>
           </>
           )}

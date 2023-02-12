@@ -58,8 +58,8 @@ const Post = ({ data }) => {
                 </>
             )}
            {loggedInUser && loggedInUser.id !== data.userId && (
-                <button className="answer_btn">
-                    <Link to={`/post/${data.id}`}>Answer</Link>
+                <button className="comment_btn">
+                    <Link to={`/post/${data.id}`}>Leave a comment</Link>
                  </button>
             )}
        

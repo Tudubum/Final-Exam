@@ -11,22 +11,27 @@ const PostComments = () => {
 
     const { id } = useParams();
     const { post } = useContext(PostContext);    
-    const { answers } = useContext(CommentsContext);
+    const { comments } = useContext(CommentsContext);
 
     const selectedPosts = post.find(post => post.id.toString() === id);
     
-    const selectedPostsAnswers = answers.filter(answer => answer.questionId.toString() === id);
+    const selectedPostsComments = comments.filter(comment => comment.questionId.toString() === id);
 
     return (
       <>
-      <Post data={selectedPosts}/>
-      <MessageForm />
-      <div>
+      <div className="both_commentForm_post">
+        <Post data={selectedPosts}/>
+        <hr className="line"/>
+        <MessageForm />
+      </div>
+      <div className="post_commentsPart">
+      <h3>All comments:</h3>
+
             {
-                selectedPostsAnswers.map((answer, index) =>
+                selectedPostsComments.map((comment, index) =>
                 <Message
-                   key={answer.id || index}
-                   data={answer}
+                   key={comment.id || index}
+                   data={comment}
                    />
                 )
             }

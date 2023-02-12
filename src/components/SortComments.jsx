@@ -11,11 +11,11 @@ const SortComments = () => {
     const [selectedButton, setSelectedButton] = useState(null);
 
     const { post } = useContext(PostContext);    
-    const { answers } = useContext(CommentsContext);
+    const { comments } = useContext(CommentsContext);
   
     useEffect(() => {
       setShowPosts(post);
-    }, [post, answers]);
+    }, [post, comments]);
   
   
     const sortFromNewest = () => {
@@ -36,20 +36,20 @@ const SortComments = () => {
       setShowPosts(sortedPosts);
     };
     
-    const answeredPosts = () => {
-        const answered = post.filter(post => {
-          return answers.some(answer => answer.questionId === post.id);
+    const commentedPosts = () => {
+        const commented = post.filter(post => {
+          return comments.some(comment => comment.questionId === post.id);
         });
     
-        setShowPosts(answered);
+        setShowPosts(commented);
       };
     
-      const unansweredPosts = () => {
-        const unanswered = post.filter(post => {
-          return !answers.some(answer => answer.questionId === post.id);
+      const uncommentedPosts = () => {
+        const uncommented = post.filter(post => {
+          return !comments.some(comment => comment.questionId === post.id);
         });
     
-        setShowPosts(unanswered);
+        setShowPosts(uncommented);
       };
 
 
@@ -81,19 +81,19 @@ const SortComments = () => {
     </button>
  
   <button 
-      className={selectedButton === 'answered' ? 'selected' : ''}
+      className={selectedButton === 'commented' ? 'selected' : ''}
       onClick={() => {
-        handleButtonClick('answered');
-        answeredPosts();
+        handleButtonClick('commented');
+        commentedPosts();
       }}
     >
       Atsakyti postai
     </button>
   <button 
-      className={selectedButton === 'unanswered' ? 'selected' : ''}
+      className={selectedButton === 'uncommented' ? 'selected' : ''}
       onClick={() => {
-        handleButtonClick('unanswered');
-        unansweredPosts();
+        handleButtonClick('uncommented');
+        uncommentedPosts();
       }}
     >
       Ne Atsakyti postai

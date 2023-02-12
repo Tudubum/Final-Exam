@@ -27,8 +27,8 @@ const EditPost = () => {
 
   return (
     <>
-    <form onSubmit={handleSubmit} className='Edit-form'>
-      <h2>Edit Question</h2>
+    <form onSubmit={handleSubmit} className='Editform'>
+      <h2>Edit Post</h2>
         <label>
           Title:
           <input type="text" name="title"
@@ -41,9 +41,10 @@ const EditPost = () => {
           <textarea type="text" name="description"
             value={formInputs.description}
             onChange={(e) => setFormInputs({...formInputs, description:e.target.value})}
-          />
+            style={{height: "150px"}}
+            />
         </label>
-        <input type="submit" value="Edit" />
+        <input type="submit" className="submit" value="Edit" />
         </form>
     </>
   );

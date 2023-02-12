@@ -8,17 +8,17 @@ const MessageForm = ( ) => {
   const { id } = useParams();
 
     const [formInputs, setFormInputs] = useState({
-       answer: "", 
+       comment: "", 
     });
 
-    const { addNewAnswers } = useContext(CommentsContext);
+    const { addNewComments } = useContext(CommentsContext);
     const { loggedInUser } = useContext(UserContext);
     const navigation = useNavigate()
    
     const handleSubmit = e => {
         e.preventDefault();
-        const newAnswers ={
-            answer: formInputs.answer,
+        const newComments ={
+            comment: formInputs.comment,
             id: Date.now(),
             userId: loggedInUser.id,
             questionId: Number(id),
@@ -28,18 +28,18 @@ const MessageForm = ( ) => {
             disLikedBy: []
         };
 
-        addNewAnswers(newAnswers);
-        setFormInputs({ answer: "" });
+        addNewComments(newComments);
+        setFormInputs({ comment: "" });
         navigation()
     }
     return(
-        <form onSubmit={handleSubmit} className="AddAnswer-form">
+        <form onSubmit={handleSubmit} className="AddComment-form">
         <label>
-          Here you can leave your Answer:
-          <textarea type="text" name="answer"
+          Leave your comment:
+          <textarea type="text" name="comment"
           placeholder="type here..."
-            value={formInputs.answer}
-            onChange={(e) => setFormInputs({...formInputs, answer:e.target.value})}
+            value={formInputs.comment}
+            onChange={(e) => setFormInputs({...formInputs, comment:e.target.value})}
           />
         </label>
         <input type="submit" className="submit" value="Send" />

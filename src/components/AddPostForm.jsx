@@ -58,6 +58,7 @@ const AddPostForm = () => {
                      Aprašymas:
                      <textarea type="textarea" value={formInputs.description} 
                      onChange={(e)=> setFormInputs({...formInputs, description:e.target.value})}
+                     style={{height: "150px", width: "100%"}}
                      />
                  </label>
                  <button className="submit" type="submit">Add</button>

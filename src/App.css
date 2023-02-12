@@ -56,9 +56,9 @@ body p{
 .linksNav{
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   color: white;
-  font-weight: ė00;
+  font-weight: 400;
 }
 
 .linksNav a{
@@ -216,7 +216,7 @@ font-weight: 500;
 
 /*  ADD POST FORM */
 
-.postForm, .logIn, .sign_up_FORM{
+.postForm, .logIn, .sign_up_FORM, .Editform{
   border-radius: 20px;
   box-sizing: border-box;
   background-color: #D6E4E5;
@@ -244,6 +244,7 @@ font-weight: 500;
   margin-top: 30px;
 }
 
+
 .submit:hover{
   background-color: #253439a2;
 }
@@ -256,11 +257,11 @@ label{
   font-weight: 300;
 }
 
-.answer_btn a:hover{
+.comment_btn a:hover{
   color: red;
 }
 
-.answer_btn a{
+.comment_btn a{
   color:#253439;
 }
 
@@ -332,28 +333,45 @@ input, textarea{
 
 /*   Message     */
 
-.AnswerCards{
-  margin: 20px 40px;
+.CommentsCards{
+  margin: 20px 0;
   background-color: rgb(239, 239, 239);
   padding: 30px;
 }
 
-.AddAnswer-form{
+.AddComment-form{
   align-items: center;
   margin: 20px 40px;
   width: 400px;
+  background-color: #D6E4E5;
+
 }
 
-.answer-info{
+.comment-info{
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
 }
 
-.comment_ANSWER{
+.both_commentForm_post{
+  background-color: #D6E4E5;
+  margin: 20px 40px;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment{
   font-size: 18px;
   font-weight: 500;
+}
+
+.post_commentsPart{
+  margin: 40px 40px;
 }
 
 .ownerButtons{
@@ -366,4 +384,5 @@ input, textarea{
   background-color: black;
   width: 100px;
   margin-top: 20px;
+  border: none;
 }

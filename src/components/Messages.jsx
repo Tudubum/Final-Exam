@@ -4,16 +4,16 @@ import Message from "./Message";
 
 const Messages = () => {
 
-  const { answers } = useContext(CommentsContext);
+  const { comments } = useContext(CommentsContext);
  
   return (
     <>
     <div className="messages_Container">
-        {answers ?
-          answers.map((answer, index) => 
+        {comments ?
+          comments.map((comment, index) => 
             <Message 
-              key={answer.id || index}
-              data={answer}
+              key={comment.id || index}
+              data={comment}
             />  
           )
           :
