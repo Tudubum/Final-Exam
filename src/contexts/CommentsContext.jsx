@@ -4,80 +4,79 @@ import UserContext from "./UserContext"
 const CommentsContext = createContext();
 const CommentsProvider = ({children}) => {
 
-    const [answers, setAnswers] = useState([]);
+    const [comments, setComments] = useState([]);
     const { loggedInUser } = useContext(UserContext);
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch("http://localhost:3000/answers");
+            const res = await fetch("http://localhost:3000/comments");
             const data = await res.json();
-            setAnswers(data);
+            setComments(data);
         };
         fetchData();
     }, []);
     
-    const addNewAnswers = async (newAnswers) =>{
-        await fetch("http://localhost:3000/answers",{
+    const addNewComments = async (newComments) =>{
+        await fetch("http://localhost:3000/comments",{
             method: "POST",
-            body: JSON.stringify(newAnswers),
+            body: JSON.stringify(newComments),
             headers: { "Content-Type": "application/json"},
         }).then (res => res.json())
-        .then(data => setAnswers([...answers,data]));
+        .then(data => setComments([...comments,data]));
     }
 
-    const deleteAnswer = async (id) =>{
-        await fetch(`http://localhost:3000/answers/${id}`, {
+    const deleteComment = async (id) =>{
+        await fetch(`http://localhost:3000/comments/${id}`, {
             method: "DELETE",
         }).then(res => {
             if(res.ok){
-                setAnswers(answers.filter(answer => answer.id !==id))
+                setComments(comments.filter(comment => comment.id !==id))
             }
         })
     };
 
-    const updateAnswer =  async (id, updatedAnswer) => {
-        await fetch(`http://localhost:3000/answers/${id}`, {
+    const updateComment =  async (id, updatedComment) => {
+        await fetch(`http://localhost:3000/comments/${id}`, {
         method: 'PATCH',
-        body: JSON.stringify(updatedAnswer),
+        body: JSON.stringify(updatedComment),
         headers: { 'Content-Type': 'application/json' },
       }).then(res => {
         if(res.ok){
-            setAnswers(answers.map(answer => answer.id === id ? {...answer, answer: updatedAnswer.answer, ...updatedAnswer} : answer));
+            setComments(comments.map(comment => comment.id === id ? {...comments, comment: updatedComment.com, ...updatedComment} : comment));
 
       }
     })
     };
 
     const handleLike = async (id) => {
-        const updatedAnswer = answers.find(answer => answer.id === id);
-        if(!updatedAnswer.likedBy.includes(loggedInUser.id)) {
-            updatedAnswer.likedBy.push(loggedInUser.id);
-            updatedAnswer.disLikedBy = updatedAnswer.disLikedBy.filter(userId => userId !== loggedInUser.id);
+        const updatedComment = comments.find(comment => comment.id === id);
+        if(!updatedComment.likedBy.includes(loggedInUser.id)) {
+            updatedComment.likedBy.push(loggedInUser.id);
+            updatedComment.disLikedBy = updatedComment.disLikedBy.filter(userId => userId !== loggedInUser.id);
         } else {
-            updatedAnswer.likedBy = updatedAnswer.likedBy.filter(userId => userId !== loggedInUser.id);
+            updatedComment.likedBy = updatedComment.likedBy.filter(userId => userId !== loggedInUser.id);
         }
-        await updateAnswer(id, updatedAnswer);
+        await updateComment(id, updatedComment);
       }
       
-      
       const handleDisLike = async (id) => {
-        const updatedAnswer= answers.find(answer => answer.id === id);
-        if(!updatedAnswer.disLikedBy.includes(loggedInUser.id)) {
-            updatedAnswer.disLikedBy.push(loggedInUser.id);
-            updatedAnswer.likedBy = updatedAnswer.likedBy.filter(userId => userId !== loggedInUser.id);
+        const updatedComment = comments.find(comment => comment.id === id);
+        if(!updatedComment.disLikedBy.includes(loggedInUser.id)) {
+            updatedComment.disLikedBy.push(loggedInUser.id);
+            updatedComment.likedBy = updatedComment.likedBy.filter(userId => userId !== loggedInUser.id);
         } else {
-            updatedAnswer.disLikedBy = updatedAnswer.disLikedBy.filter(userId => userId !== loggedInUser.id);
+            updatedComment.disLikedBy = updatedComment.disLikedBy.filter(userId => userId !== loggedInUser.id);
         }
-        await updateAnswer(id, updatedAnswer);
+        await updateComment(id, updatedComment);
       }
       
     return(
         <CommentsContext.Provider
           value={{
-            addNewAnswers,
-            deleteAnswer,
-            updateAnswer,
-            answers,
+            addNewComments,
+            deleteComment,
+            updateComment,
+            comments,
             handleLike,
             handleDisLike
           }}
