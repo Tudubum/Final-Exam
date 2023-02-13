@@ -19,19 +19,19 @@ const SortComments = () => {
   
   
     const sortFromNewest = () => {
-      const sortedPosts = [...showPosts].sort((a, b) => {
-        const dateA = new Date(a.time);
-        const dateB = new Date(b.time);
-        return dateA - dateB;
+      const sortedPosts = [...showPosts].sort((sk1, sk2) => {
+        const time1 = new Date(sk1.time);
+        const time2 = new Date(sk2.time);
+        return time1 - time2;
       });
       setShowPosts(sortedPosts);
     };
   
     const sortFromOldest = () => {
-      const sortedPosts = [...showPosts].sort((a, b) => {
-        const dateA = new Date(a.time);
-        const dateB = new Date(b.time);
-        return dateB - dateA;
+      const sortedPosts = [...showPosts].sort((sk1, sk2) => {
+        const time1 = new Date(sk1.time);
+        const time2 = new Date(sk2.time);
+        return time2 - time1;
       });
       setShowPosts(sortedPosts);
     };
@@ -56,9 +56,15 @@ const SortComments = () => {
       const handleButtonClick = (button) => {
         setSelectedButton(button);
         if (button === 'newest') {
-          sortFromNewest();
+        sortFromNewest();
+        } else if (button === 'oldest') {
+        sortFromOldest();
+        } else if (button === 'commented') {
+        commentedPosts();
+        } else if (button === 'uncommented') {
+        uncommentedPosts();
         }
-      }
+        };
   
     return (
       <>

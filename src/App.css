@@ -210,6 +210,7 @@ font-weight: 500;
   margin: 30px 40px 0 40px;
 }
 
+
 /*  ADD POST FORM */
 
 .postForm, .logIn, .sign_up_FORM, .Editform{
@@ -382,3 +383,9 @@ input, textarea{
   margin-top: 20px;
   border: none;
 }
+
+textarea {
+  font-size: 14px;
+  font-weight: 100;
+}
+

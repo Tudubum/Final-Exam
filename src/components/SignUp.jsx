@@ -93,7 +93,7 @@ const SignUp = () => {
             <Form className="forma">
            
         <div className="SignUp-form">
-          <h3>Sign Up</h3>
+          <h1>Sign Up</h1>
         <div className="wrapper">
             <label>
               User name:

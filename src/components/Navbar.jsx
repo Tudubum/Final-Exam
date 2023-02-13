@@ -4,7 +4,7 @@ import { useContext } from "react";
 import UserContext from "../contexts/UserContext";
 
 import { NavLink } from 'react-router-dom';
-import UserProfile from "../components/User/UserProfile";
+import UserProfile from "../components/UserProfile";
 
 const Navbar = () => {
 
