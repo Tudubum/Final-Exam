@@ -70,7 +70,7 @@ const Message = ({ data }) => {
           </>
           )}
       </div>
-      <div className="likeDislikeWrapper">
+      <div className="likeDislike">
       {loggedInUser &&
         <>
       <button onClick={() => handleLike(data.id)} className="likeButton">

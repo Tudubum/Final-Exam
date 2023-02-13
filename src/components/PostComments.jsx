@@ -20,37 +20,35 @@ const PostComments = () => {
     
     const selectedPostsComments = comments.filter(comment => comment.questionId.toString() === id);
 
+
     return (
       <>
-           { loggedInUser ? (
-        <>
-          <div className="both_commentForm_post">
-            <Post data={selectedPosts}/>
-            <hr className="line"/>
+        <div className="both_commentForm_post">
+          <Post data={selectedPosts} />
+          <hr className="line" />
+          {loggedInUser ? (
             <MessageForm />
-          </div>
-          <div className="post_commentsPart">
-            <h3>All comments:</h3>
-              {
-                selectedPostsComments.length ? (
-                  selectedPostsComments.map((comment, index) =>
-                  <Message
-                     key={comment.id || index}
-                     data={comment}
-                     />
-                  )
-                ) : (
-                  <p>No comments yet</p>
-                )
-              }
-            </div>
-        </>
-      ) : (
-        <p>Please log in to see the post and comments.</p>
-      )}
-    </>
-  );
-}
-
+          ) : (
+            <p>Please log in to leave a comment.</p>
+          )}
+        </div>
+        <div className="post_commentsPart">
+          <h3>All comments:</h3>
+          {
+            selectedPostsComments.length ? (
+              selectedPostsComments.map((comment, index) =>
+                <Message
+                  key={comment.id || index}
+                  data={comment}
+                />
+              )
+            ) : (
+              <p>No comments yet</p>
+            )
+          }
+        </div>
+      </>
+    );
+};
 
 export default PostComments;
